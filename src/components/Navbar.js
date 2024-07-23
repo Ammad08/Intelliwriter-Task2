@@ -1,5 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+
+import React, { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 import { SiBloglovin } from "react-icons/si";
 import { FaRegShareSquare } from "react-icons/fa";
@@ -14,203 +15,175 @@ import { FaImage } from "react-icons/fa";
 import { MdVoiceChat } from "react-icons/md";
 import { GiMeshBall } from "react-icons/gi";
 
-export default function Navbar() {
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <>
-      <nav className="    bg-white border-gray-200 dark:bg-gray-900 lg:sticky top-0">
-        <div className=" max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <div className="flex mx-auto">
-            <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-              <img src="navbar.png" className="h-12 mx-10" alt="/" />
+    <nav
+      className={` z-50 px-5 py-4  fixed w-full transition-all duration-300 ${
+        isScrolled
+          ? "bg-transparent backdrop-blur-md border-b border-white"
+          : "bg-[#10051e] backdrop-filter backdrop-blur-md"
+      }`}
+    >
+      <div className="text-white flex flex-col lg:flex-row justify-between items-center">
+        <div className="flex lg:flex-col md:flex-row md:w-full lg:w-1/5 justify-between">
+          <div className="flex items-center justify-between w-2/4 md:w-1/5 lg:w-2/4">
+            <a href="blank">
+              <img
+                className="w-9/12 md:w-full pl-2 lg:pl-6"
+                src="./navbar.png"
+                alt="logo"
+              />
             </a>
-
-            <ul className="font-medium flex flex-col p-4  md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <li>
-                <Link
-                  to="/Firstpg"
-                  className="block py-2 px-3 text-white hover:underline rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:"
-                  aria-current="page"
-                >
-                  About
-                </Link>
-              </li>
-
-              <li>
-                <div className="relative group">
-                  <Link
-                    to="/"
-                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:underline-offset-1 md:p-0 dark:text-white md:dark:hover:underline dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    AI Tools
-                  </Link>
-
-                  <div className="absolute hidden bg-black text-white shadow-lg group-hover:block mt-1 w-auto text-nowrap rounded-lg">
-                    <div className="flex flex-row px-14 pr-20 py-14">
-                      <ul className="pr-20 grid gap-10">
-                        <li className="flex items-center  gap-4">
-                          <SiBloglovin className="size-6" />
-                          <p>
-                            <Link to="Cards">Blog Content</Link></p>{" "}
-                        </li>
-                        <li className="flex items-center gap-4">
-                          <CgWebsite className="size-6" />
-                          <p>
-                            <Link to="Firstpg">Website</Link></p>{" "}
-                        </li>
-                        <li className="flex items-center gap-4">
-                          <RiVoiceprintFill className="size-6" />
-                          <p>
-                            <Link to="Imgdesign">AI Voice Generator</Link></p>{" "}
-                        </li>
-                        <li className="flex items-center gap-4">
-                          <FaYoutube className="size-6" />
-                          <p>
-                            <Link to="/Cards">Youtube Content</Link></p>{" "}
-                        </li>
-                      </ul>
-                      <ul className="pr-20 grid gap-10">
-                        <li className="flex items-center gap-4">
-                          <FaRegShareSquare className="size-6" />
-                          <p>
-                            <Link to="/Footer">Social Media </Link></p>{" "}
-                        </li>
-                        <li className="flex items-center gap-4">
-                          <FaBook className="size-6" />
-                          <p>
-                            <Link to="/Packages">Course Builder</Link></p>{" "}
-                        </li>
-                        <li className="flex items-center gap-4">
-                          <TbTextCaption className="size-6" />
-                          <Link to="/">Image Caption Generator</Link>{" "}
-                        </li>
-                        <li className="flex items-center gap-4">
-                          <SiChatbot className="size-6" />
-                          <p>
-                            <Link to="/Register">AI Chat</Link>
-                          </p>{" "}
-                        </li>
-                      </ul>
-                      <ul className="grid gap-10">
-                        <li className="flex items-center gap-4">
-                          <SiGooglemarketingplatform className="size-6" />
-                          <p>
-                            <Link to="/Cards">Marketing</Link></p>{" "}
-                        </li>
-                        <li className="flex items-center gap-4">
-                          <FaImage className="size-6" />
-                          <p>
-                            <Link to="/Anime">AI Image Generator</Link></p>{" "}
-                        </li>
-                        <li className="flex items-center gap-4">
-                          <MdVoiceChat className="size-6" />
-                          <p>
-                            <Link to="/Firstpg">Speech Content</Link></p>{" "}
-                        </li>
-                        <li className="flex items-center gap-4">
-                          <GiMeshBall className="size-6" />
-                          <p>
-                            <Link to="/Cards">Free AI Tools</Link></p>{" "}
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <Link
-                  to="/Animation"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:underline md:p-0 dark:text-white md:dark:hover:underline dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Bypass AI
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/Footer"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:underline md:p-0 dark:text-white md:dark:hover:underline dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  APIs
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/Packages"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:underline md:p-0 dark:text-white md:dark:hover:underline dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/Anime"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:underline md:p-0 dark:text-white md:dark:hover:underline dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Blogs
-                </Link>
-              </li>
-              <li>
-                <p>
-                  <Link
-                    to="/Accordin"
-                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:underline md:p-0 dark:text-white md:dark:hover:underline dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    Become an Affiliate
-                  </Link>
-                </p>
-              </li>
-              <div className="block lg:hidden ">
-                <li>
-                  <Link to="/Register">
-                    <button
-                      type="button"
-                      className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
-                    >
-                      Register
-                    </button>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/Login">
-                    <button
-                      type="button"
-                      className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-                    >
-                      Login
-                    </button>
-                  </Link>
-                </li>
-              </div>
-            </ul>
           </div>
-
-          <div className="hidden w-full lg:block md:w-auto" id="navbar-default">
-            <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <li>
-                <Link to="/Register">
-                  <button
-                    type="button"
-                    className="focus:outline-none text-white w-28 h-11 bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:bg-purple-900 font-medium rounded-3xl text-sm px-5 py-2.5 mb-2 dark:bg-purple-800 dark:hover:bg-purple-800 dark:focus:ring-purple-900"
-                  >
-                    Register
-                  </button>
-                </Link>
-              </li>
-
-              <li>
-                <Link to="/Login">
-                  <button
-                    type="button"
-                    className="text-gray-900 bg-white border w-28 h-11 border-gray-300 ring-offset-2 ring-2 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-900 dark:text-white dark:border-gray-900 dark:hover:bg-gray-900 dark:hover:border-gray-900 dark:focus:ring-gray-700"
-                  >
-                    Login
-                  </button>
-                </Link>
-              </li>
-            </ul>
+          <div className="block lg:hidden self-end">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white focus:outline-none"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </button>
           </div>
         </div>
-      </nav>
-    </>
+
+        <div
+          className={`${
+            isOpen ? "hidden" : "flex"
+          }  flex-col lg:flex-row md:flex-row md:self-center self-start md:w-full lg:w-4/5  mt-2 lg:mt-0 lg:text-lg md:text-sm`}
+        >
+          <div className="flex flex-col md:flex-row w-full justify-center self-center md:items-center">
+            <Link to="/Footer" className="p-2 lg:px-4" >
+              About
+            </Link>
+            <div className="relative group">
+              <Link to="/Cards" className="p-2 lg:px-4 cursor-pointer">AI Tools</Link>
+              <div className="absolute hidden bg-black text-white shadow-lg group-hover:block mt-1 w-auto text-nowrap rounded-lg">
+                <div className="flex flex-row px-14 pr-20 py-14">
+                  <ul className="pr-20 grid gap-10">
+                    <li className="flex items-center gap-4">
+                      <SiBloglovin className="size-7" />
+                     <Link to="/Firstpg"> <p>Blog Content</p></Link>{" "}
+                    </li>
+                    <li className="flex items-center gap-4">
+                      <CgWebsite className="size-7" />
+                      <Link to="/Navbar"><p>Website</p></Link>{" "}
+                    </li>
+                    <li className="flex items-center gap-4">
+                      <RiVoiceprintFill className="size-7" />
+                     <Link to="/Firstpg"><p>AI Voice Generator</p></Link> {" "}
+                    </li>
+                    <li className="flex items-center gap-4">
+                      <FaYoutube className="size-7" />
+                      <Link to="/Footer"><p>Youtube Content</p></Link>{" "}
+                    </li>
+                  </ul>
+                  <ul className="pr-20 grid gap-10">
+                    <li className="flex items-center gap-4">
+                      <FaRegShareSquare className="size-7" />
+                      <Link to="/Footer"><p>Social Media</p></Link>{" "}
+                    </li>
+                    <li className="flex items-center gap-4">
+                      <FaBook className="size-7" />
+                     <Link to="/Packages"> <p>Course Builder</p></Link>{" "}
+                    </li>
+                    <li className="flex items-center gap-4">
+                      <TbTextCaption className="size-7" />
+                      <Link to="/Cards"><p>Image Caption Generator</p></Link>{" "}
+                    </li>
+                    <li className="flex items-center gap-4">
+                      <SiChatbot className="size-7" />
+                      <p>
+                        <Link to="/Register">AI Chat</Link>
+                      </p>{" "}
+                    </li>
+                  </ul>
+                  <ul className="grid gap-10">
+                    <li className="flex items-center gap-4">
+                      <SiGooglemarketingplatform className="size-7" />
+                     <Link to="/Footer"><p>Marketing</p></Link> {" "}
+                    </li>
+                    <li className="flex items-center gap-4">
+                      <FaImage className="size-7" />
+                      <Link to="/Animation"><p>AI Image Generator</p></Link>{" "}
+                    </li>
+                    <li className="flex items-center gap-4">
+                      <MdVoiceChat className="size-7" />
+                      <Link to="/Imgdesign"><p>Speech Content</p></Link>{" "}
+                    </li>
+                    <li className="flex items-center gap-4">
+                      <GiMeshBall className="size-7" />
+                      <Link to="/Firstpg"><p>Free AI Tools</p></Link>{" "}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <Link className="p-2 lg:px-4" to="/Anime">
+              Bypass AI
+            </Link>
+            <Link className="p-2 lg:px-4" to="/Accordin">
+              APIs
+            </Link>
+            <Link className="p-2 lg:px-4" to="/Packages">
+              Pricing
+            </Link>
+            <Link className="p-2 lg:px-4" to="/Cards">
+              Blogs
+            </Link>
+            <Link className="p-2 lg:px-4" to="/Register">
+              Become an Affiliate
+            </Link>
+          </div>
+          <div className="flex pr-10 gap-4 text-lg justify-evenly md:justify-center items-center md:text-sm lg:text-base">
+            <NavLink
+              className="text-white rounded-full p-2 px-6 bg-gradient-to-r from-[#471c7c] to-[#7628d6]"
+              to="/Register"
+            >
+              <button>Register</button>
+            </NavLink>
+
+            <NavLink
+              className="text-white border-2 border-white rounded-full px-6 py-2 lg:mt-0 lg:ml-2"
+              to="/login"
+            >
+              <button>Login</button>
+            </NavLink>
+          </div>
+        </div>
+      </div>
+    </nav>
   );
-}
+};
+
+export default Navbar;

@@ -19,12 +19,12 @@ export default function Login() {
         <img
           src="https://intelliwriter.io/backgrounds/Loginbg.webp"
           alt="background"
-          className="w-full h-full object-cover"
+          className="hidden lg:block xl:block w-full h-full object-cover"
         />
       </div>
 
-      <div className="bg-[#0F172A] w-full md:w-1/3 p-5 flex flex-col items-center py-6">
-      <img src="navbar.png" alt="navbar" className="px-28  pb-10" />
+      <div className="bg-[#0F172A] w-full  sm:h-full  md:w-1/3 p-5 flex flex-col items-center py-6">
+      <img src="navbar.png" alt="navbar" className="px-28  pb-6" />
         <h1 className="font-bold md:-mt-9 lg:mt-0  text-4xl text-center">Login</h1>
         <p className="text-gray-300 md:py-2 py-5 lg:py-5 px-6 lg:px-14 text-center">
           Start generating your thoughts with Intelliwriter.io

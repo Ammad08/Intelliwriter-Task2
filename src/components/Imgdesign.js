@@ -4,7 +4,8 @@ import Animation from "./Animation";
 export default function Imgdesign() {
   return (
     <>
-      <div className="bg-[#0F062C]   items-center text-center justify-center lg:flex text-white lg:p-4 md:px-5 lg:py-20 font-serif font-bold">
+    {/* 
+      <div className="bg-[#0F062C]   py-20 items-center text-center justify-center lg:flex text-white lg:p-4 md:px-5 lg:py-20 font-serif font-bold">
         <div className="lg:flex lg:w-1/2">
           <img
             className="w-full md:w-auto lg:w-fit items-center justify-center text-center"
@@ -13,10 +14,10 @@ export default function Imgdesign() {
           />
         </div>
         <div className="lg:w-1/2 lg:text-left lg:px-5">
-          <h1 className="text-3xl p-3 py-14 lg:p-0 lg:text-6xl font-normal">
+          <h1 className="text-3xl p-6 py-10 md:p-0 md:text-6xl sm:mt-10 ">
             Innovative <span className="text-[#EF59FF]">Image</span> Design
           </h1>
-          <p className=" font-normal lg:pt-8 p-5 md:p-0 md:text-2xl leading-10 lg:leading-normal">
+          <p className="  lg:pt-8 p-5 md:p-0 md:text-2xl leading-10 lg:leading-normal">
             The Intelliwriter Image Generator Module is a powerful addition to
             the Intelliwriter platform, enabling users to effortlessly create
             custom images that enhance their written content. With intuitive
@@ -26,9 +27,47 @@ export default function Imgdesign() {
           </p>
         </div>
       </div>
-      <div className="bg-[#0F062C] items-center text-center justify-center  lg:flex text-white lg:p-4 md:px-5 lg:py-20 ">
-        <div className=" text-white lg:p-4 md:px-5 lg:py-20  lg:w-1/2  order-2 lg:order-1">
-          <h1 className="text-3xl p-6 py-14 md:p-0 md:text-6xl">
+      */}
+
+
+<div className="bg-[#0F062C] md:py-6 items-center  justify-center  lg:flex text-white lg:p-4 md:px-5 lg:py-20 ">
+      <div className="lg:w-1/2 order-1 lg:order-2">
+          <img
+            className="w-full md:w-auto lg:w-fit"
+            src="Section2.png"
+            alt="Voice Experience"
+          />
+        </div>
+        
+        <div className=" text-white  lg:p-4 md:px-5   lg:w-1/2  order-2 lg:order-2">
+          <h1 className="text-3xl p-6 py-14 md:p-0 md:text-6xl md:py-2 ">
+          Innovative <span className="text-[#EF59FF]">Image</span> Design
+          </h1>
+          <p className="lg:pt-8 p-5 lg:p-0 md:text-2xl leading-10 lg:leading-normal">
+          The Intelliwriter Image Generator Module is a powerful addition to
+            the Intelliwriter platform, enabling users to effortlessly create
+            custom images that enhance their written content. With intuitive
+            controls and advanced algorithms, this module ensures a seamless
+            integration of dynamic visuals, elevating the overall impact and
+            engagement of your message across various platforms.
+          </p>
+        </div>
+        
+      </div>
+
+
+
+      <div className="bg-[#0F062C] md:py-6 items-center  justify-center  lg:flex text-white lg:p-4 md:px-5  ">
+      <div className="lg:w-1/2 order-1 lg:order-2">
+          <img
+            className="w-full md:w-auto lg:w-fit"
+            src="Section3.png"
+            alt="Voice Experience"
+          />
+        </div>
+        
+        <div className=" text-white  lg:p-4 md:px-5   lg:w-1/2  order-2 lg:order-1">
+          <h1 className="text-3xl p-6 py-14 md:p-0 md:text-6xl sm:mt-10 ">
             Enhance <span className="text-[#EF59FF]">Voice</span> Experience
           </h1>
           <p className="lg:pt-8 p-5 lg:p-0 md:text-2xl leading-10 lg:leading-normal">
@@ -41,13 +80,7 @@ export default function Imgdesign() {
             projects, ensuring consistency and quality.
           </p>
         </div>
-        <div className="lg:w-1/2 order-1 lg:order-2">
-          <img
-            className="w-full md:w-auto lg:w-fit"
-            src="Section3.png"
-            alt="Voice Experience"
-          />
-        </div>
+        
       </div>
 
       <div className="bg-[#0F062C] justify-center pt-14 lg:py-24  pb-28 p-5">

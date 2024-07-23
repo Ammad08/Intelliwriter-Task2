@@ -44,8 +44,8 @@ export default function Footer() {
             </div>
 
            
-            <div className="flex flex-col md:flex-row justify-center md:space-x-8 mt-8 md:mt-0">
-              <div className="text-left mb-8 md:pl-10 leading-loose">
+            <div className="flex flex-col md:flex-row justify-center md:space-x-8 mt-8 md:mt-0 ">
+              <div className="text-left mb-8 md:pl-10 leading-loose sm:py-6">
                 <h2 className="text-xl font-semibold mb-4">General</h2>
                 <ul className="space-y-2">
                   <li>
@@ -75,7 +75,7 @@ export default function Footer() {
                   </li>
                 </ul>
               </div>
-              <div className="text-left mb-8 md:pl-10 leading-loose">
+              <div className="text-left mb-8 md:pl-10 leading-loose w-full sm:py-6">
                 <h2 className="text-xl font-semibold mb-4">Features</h2>
                 <ul className="space-y-2">
                   <li>
@@ -126,7 +126,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="text-left mb-8 md:pl-10 leading-loose">
-                <h2 className="text-xl font-semibold mb-4 text-nowrap">
+                <h2 className="text-xl font-semibold mb-4 text-nowrap sm:py-6">
                   Important Links
                 </h2>
                 <ul className="space-y-2">
